@@ -8,15 +8,15 @@
 ;;;
 ;;; The fetch is curl and xsltproc (web/parsers/feed.xsl), off the UI
 ;;; lane through the buffer cache. Read items dim. The subscriptions
-;;; live in ~/.aimax/feeds, one URL per line; the read links live in
-;;; ~/.aimax/feeds-read.
+;;; live in ~/.compos/feeds, one URL per line; the read links live in
+;;; ~/.compos/feeds-read.
 
 (domain! 'web)
 (effects! '(read external))
 
 (define *feeds-buffer* "*feeds*")
-(define *feeds-file* (string-append (aimax-home) "/feeds"))
-(define *feeds-read-file* (string-append (aimax-home) "/feeds-read"))
+(define *feeds-file* (string-append (compos-home) "/feeds"))
+(define *feeds-read-file* (string-append (compos-home) "/feeds-read"))
 (define *feeds-read-max* 500)
 
 (defgroup 'feeds "Feeds: read RSS and Atom subscriptions in the editor.")
@@ -157,7 +157,7 @@
 
 (define (feeds--fetch-command urls)
   (let ((xsl (feeds--shell-quote
-               (string-append (aimax-priv-dir)
+               (string-append (compos-priv-dir)
                               "/packages/web/parsers/feed.xsl"))))
     (string-join
       (map (lambda (u)

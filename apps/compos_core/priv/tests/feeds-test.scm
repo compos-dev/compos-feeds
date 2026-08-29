@@ -9,7 +9,7 @@
 (domain! 'testing)
 (effects! '(read))
 
-(define t--feeds-dir (string-append (aimax-home) "/zz-feeds"))
+(define t--feeds-dir (string-append (compos-home) "/zz-feeds"))
 (define t--feeds-lines
   (string-append
     "Ars\tTue, 19 Aug 2026 10:00:05 GMT\thttps://site.test/a\tAlpha article\n"
